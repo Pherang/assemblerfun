@@ -30,7 +30,6 @@ _start:
 			# so now we can just pop it into %ebx
 
 	addl %eax, %ebx # add them together. The result is in %ebx
-
 	movl $1, %eax
 	int $0x80
 
@@ -60,7 +59,7 @@ power:
 	movl  %esp, %ebp	# put the stack pointer into base pointer
 	subl  $4, %esp		# get room for local storage pushes pointer
 
-	movl  8(%ebp), %ebx	# put the first argument in %eax
+	movl  8(%ebp), %ebx	# put the first argument in %ebx
 	movl  12(%ebp), %ecx	# put the second argument in %ecx
 
 	movl  %ebx, -4(%ebp)	# store current result
@@ -70,7 +69,7 @@ power_loop_start:
 	je    end_power
 	
 	movl  -4(%ebp), %eax	# move current result into %eax
-	imull %ebx, %eax	# multiply current result by base number
+	imull %ebx, %eax	# multiply current result by base number and store result in %eax
 	
 	movl  %eax, -4(%ebp)     # store the current result
 
