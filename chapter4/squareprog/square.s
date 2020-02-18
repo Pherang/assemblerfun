@@ -43,5 +43,3 @@ square_number:
 	movl %ebp, %esp		# Standard stack prep for return
 	popl %ebp
 	ret
-	
-

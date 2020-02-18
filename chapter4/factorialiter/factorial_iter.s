@@ -29,13 +29,13 @@ factorial:
 	movl %esp, %ebp		# This saves %esp's current value which was the 				# same as %ebp. We do this so we can use %ebp to 				# use base pointer addressing on the stack.
 
 	movl 8(%ebp), %eax	# This moves the factorial number into %eax.
-	
+check_factorial:
 	cmpl $1, %eax		# Checks if we are at the base case of 1.
 	je end_factorial
 
 	decl %eax		# If not, decrease the value
 	pushl %eax		# Push it on to stack to prep for factorial
-	call factorial		# call the function again. Starting to recurse
+	jmp check_factorial	# call the function again. Starting to recurse
 	movl 8(%ebp), %ebx	# %eax has return calue so we reload parameter
 				# into %ebx
 	imull %ebx, %eax	# multiply that by the result of the last

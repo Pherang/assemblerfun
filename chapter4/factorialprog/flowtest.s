@@ -20,6 +20,8 @@ f1:
 	pushl %ebp
 	movl %esp, %ebp
 	movl $5, %ebx 
+
+	jmp end_f1
 	movl %ebp, %esp
 	popl %ebp	
 	ret

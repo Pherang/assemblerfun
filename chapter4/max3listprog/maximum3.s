@@ -28,8 +28,8 @@ data_items3:		#These are the data items. Note that 0 is the end.
 
 _start:
 	pushl $data_items1	# This should put the start address of 
- 	pushl $data_items2	# dta_items on the stack
- 	pushl $data_items3	# dta_items on the stack
+ 	pushl $data_items2	# data_items on the stack
+ 	pushl $data_items3	# data_items on the stack
 	call  find_max		# Call the function to search the list
 
 	addl $4, %esp		# Clean up the stack.
